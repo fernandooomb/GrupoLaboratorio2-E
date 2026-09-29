@@ -13,26 +13,43 @@ struct Nodo
     Nodo *anterior;
 };
 
-//Parametros
+// Parametros
 void InsertarInicio(Nodo **lista, Productos p);
 void EliminarFinal(Nodo **lista);
 void Imprimir(Nodo *lista);
 
 int main()
 {
-    Nodo *lista =nullptr;
-
+    Nodo *lista = nullptr;
 
     return 0;
 }
 
-//Funciones
-void InsertarInicio(Nodo **lista, Productos p){
-
+// Funciones
+void InsertarInicio(Nodo **lista, Productos p)
+{
 }
-void EliminarFinal(Nodo **lista){
-
+void EliminarFinal(Nodo **lista)
+{
+    if (*lista == nullptr)
+    {
+        std::cout << "Lista vacia\n";
+        return;
+    }
+    if ((*lista)->siguiente == nullptr)
+    {
+        delete *lista;
+        *lista = nullptr;
+        return;
+    }
+    Nodo *temporal = *lista;
+    while (temporal->siguiente != nullptr)
+    {
+        temporal = temporal->siguiente;
+    }
+    temporal->anterior->siguiente = nullptr;
+    delete temporal;
 }
-void Imprimir(Nodo *lista){
-    
+void Imprimir(Nodo *lista)
+{
 }
