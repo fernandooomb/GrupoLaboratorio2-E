@@ -43,7 +43,7 @@ void InsertarInicio(Nodo **lista, Productos p){
         *lista = nuevo_nodo;
     }
 
-    std::cout<<"Producto agregado"<<"\n";
+    std::cout<<"Producto agregado"<< p.nombre<<"\n";
 
 }
 void EliminarFinal(Nodo **lista){
