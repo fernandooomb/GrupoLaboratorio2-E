@@ -13,40 +13,43 @@ struct Nodo
     Nodo *anterior;
 };
 
-//Parametros
+// Parametros
 void InsertarInicio(Nodo **lista, Productos p);
 void EliminarFinal(Nodo **lista);
 void Imprimir(Nodo *lista);
 
 int main()
 {
-    Nodo *lista =nullptr;
-
+    Nodo *lista = nullptr;
 
     return 0;
 }
 
-//Funciones
-void InsertarInicio(Nodo **lista, Productos p){
-
+// Funciones
+void InsertarInicio(Nodo **lista, Productos p)
+{
 }
-void EliminarFinal(Nodo **lista){
-
-}
-void Imprimir(Nodo *lista){
-            if (lista == nullptr)
+void EliminarFinal(Nodo **lista)
+{
+    if (*lista == nullptr)
     {
-        std::cout << "No hay productos\n";
+        std::cout << "Lista vacia\n";
         return;
     }
-
-    struct Nodo *temporal = lista;
-    while (temporal != nullptr)
+    if ((*lista)->siguiente == nullptr)
     {
-        std::cout << "Nombre del producto: " << temporal->productos.nombre;
-        std::cout << "Codigo del producto: " << temporal->productos.codigo_producto;
-        std::cout << "Precio: " << temporal->productos.precio << "\n";
-        
+        delete *lista;
+        *lista = nullptr;
+        return;
+    }
+    Nodo *temporal = *lista;
+    while (temporal->siguiente != nullptr)
+    {
         temporal = temporal->siguiente;
     }
+    temporal->anterior->siguiente = nullptr;
+    delete temporal;
+}
+void Imprimir(Nodo *lista)
+{
 }
