@@ -41,6 +41,22 @@ int main()
 
 //Funciones
 void InsertarInicio(Nodo **lista, Productos p){
+ 
+    Nodo *nuevo_nodo = new Nodo;
+    nuevo_nodo->productos = p;
+    nuevo_nodo->siguiente = nullptr;
+    nuevo_nodo->anterior = nullptr;
+
+    if(*lista == nullptr){
+
+        *lista = nuevo_nodo;
+    }else{
+        nuevo_nodo->anterior = *lista;
+        (*lista)->siguiente = nuevo_nodo;
+        *lista = nuevo_nodo;
+    }
+
+    std::cout<<"Producto agregado"<< p.nombre<<"\n";
 
     Nodo *nuevo_nodo = new Nodo;
     nuevo_nodo->productos = p;
